@@ -1,0 +1,32 @@
+<label>Server Name:</label>
+<!--Using event binding
+    <input type="text" 
+    class="form-control"
+    (input)="onUpdatingName($event)" />-->
+    <input type="text" 
+    class="form-control"
+    [(ngModel)]="providedServerName" />
+<p>{{ providedServerName }}</p>
+
+<!--square brackets indicate angular that we are doing property binding-->
+<button class="btn btn-primary" 
+    [disabled]="!allowCreateServer"
+    (click)="onCreateServer()">Add New Server</button>
+
+<p>{{ createServerMessage }}</p>
+
+<p>{{ 'Message' }} from server is {{ getServerStatus() }} and code is {{ serverMessage }}</p>
+
+
+<!--
+    [] is for property binding
+    () is for event binding
+    for two way binding we combine both property binding and event binding [()]
+    String Interpolation vs Property binding
+    when to use string interpolation and property binding?
+    when we want to output some element or print some text use string interopolation,
+    if we want to change some property, directive, component use property binding
+
+    
+    NOTE: Do not mix property binding with string interpolation
+ -->
